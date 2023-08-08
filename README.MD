@@ -13,13 +13,17 @@
     - [ ] Listar `Person`
     - [ ] Modificar `Person`
     - [ ] Deletar `Person`
----
+
+<br>
+
 - [ ] Relationship
     - [ ] Criar `Relationship`
     - [ ] Listar `Relationship`
     - [ ] Modificar `Relationship`
     - [ ] Deletar `Relationship`
----
+
+<br>
+
 - [ ] Criar Ler `Genealogy`
 
 <br>
@@ -30,13 +34,16 @@
     - [ ] Controlador Listar `Person`
     - [ ] Controlador Modificar `Person`
     - [ ] Controlador Deletar `Person`
----
+
+<br>
 
 - [ ] Relationship
     - [ ] Controlador Criar `Relationship`
     - [ ] Controlador Listar `Relationship`
     - [ ] Controlador Modificar `Relationship`
     - [ ] Controlador Deletar `Relationship`
+
+<br>
 
 
 > ### Criar infra
