@@ -1,7 +1,7 @@
 package domain
 
 import (
-	internalerrors "famlily-tree-challenge/internal/domain/internal-errors"
+	structErrors "famlily-tree-challenge/internal/domain/struct-errors"
 
 	"github.com/google/uuid"
 )
@@ -18,7 +18,7 @@ func NewPerson(name string) (*Person, error) {
 		Name: name,
 	}
 
-	err := internalerrors.ValidatorStruct(person)
+	err := structErrors.ValidatorStruct(person)
 	if err == nil {
 		return person, nil
 	}

@@ -1,4 +1,4 @@
-package internalerrors
+package structerrors
 
 import (
 	"errors"
