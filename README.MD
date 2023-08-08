@@ -1,6 +1,6 @@
 ## Requisitos
-
-> ### Criar camada de dominío
+ ### Criar camada de domínio
+ ---
 - [ ] Criar entidade `Person`
 - [ ] Criar entidade `Relationship`
 - [ ] Criar entidade `Genealogy`
@@ -8,6 +8,7 @@
 <br>
     
 > ### Criar Use Cases
+---
 - [ ] Person
     - [ ] Criar `Person`
     - [ ] Listar `Person`
@@ -29,6 +30,7 @@
 <br>
 
 > ### Criar camada de controle
+---
 - [ ] Person
     - [ ] Controlador Criar `Person`
     - [ ] Controlador Listar `Person`
@@ -47,6 +49,7 @@
 
 
 > ### Criar infra
+---
 - [ ] Conexão com banco de dados
 - [ ] Criar Roteamento
 - [ ] Dockerizar projeto
