@@ -8,7 +8,7 @@ import (
 
 func Test_NewPerson_CreatePerson(t *testing.T) {
 	assert := assert.New(t)
-	name := "teste"
+	name := "Jonh"
 
 	person, err := NewPerson(name)
 
