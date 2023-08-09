@@ -1,7 +1,7 @@
 ## Requisitos
 > ### Criar camada de domínio
 ---
-- [ ] Criar entidade `Person`
+- [x] Criar entidade `Person`
 - [ ] Criar entidade `Relationship`
 - [ ] Criar entidade `Genealogy`
 
@@ -10,7 +10,7 @@
 > ### Criar Use Cases
 ---
 - [ ] Person
-    - [ ] Criar `Person`
+    - [x] Criar `Person`
     - [ ] Listar `Person`
     - [ ] Modificar `Person`
     - [ ] Deletar `Person`
