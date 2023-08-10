@@ -12,7 +12,7 @@
 - [ ] Person
     - [x] Criar `Person`
     - [x] Listar `Person`
-    - [ ] Modificar `Person`
+    - [x] Modificar `Person`
     - [ ] Deletar `Person`
 
 <br>

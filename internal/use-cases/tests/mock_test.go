@@ -16,12 +16,17 @@ func (r *PersonRespositoryMock) Create(person *domain.Person) error {
 }
 
 func (r *PersonRespositoryMock) List(filterByID *string) ([]*domain.Person, error) {
-    args := r.Called(filterByID)
-    
-    var persons []*domain.Person
-    if args.Get(0) != nil {
-        persons = args.Get(0).([]*domain.Person)
-    }
-    
-    return persons, args.Error(1)
+	args := r.Called(filterByID)
+
+	var persons []*domain.Person
+	if args.Get(0) != nil {
+		persons = args.Get(0).([]*domain.Person)
+	}
+
+	return persons, args.Error(1)
+}
+
+func (r *PersonRespositoryMock) Update(person *domain.Person) error {
+	args := r.Called(person)
+	return args.Error(0)
 }
