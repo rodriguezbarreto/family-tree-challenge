@@ -11,7 +11,7 @@
 ---
 - [ ] Person
     - [x] Criar `Person`
-    - [ ] Listar `Person`
+    - [x] Listar `Person`
     - [ ] Modificar `Person`
     - [ ] Deletar `Person`
 

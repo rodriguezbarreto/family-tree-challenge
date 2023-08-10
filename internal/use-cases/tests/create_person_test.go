@@ -2,7 +2,6 @@ package usecases_test
 
 import (
 	"errors"
-	"famlily-tree-challenge/internal/domain"
 	usecases "famlily-tree-challenge/internal/use-cases"
 	"testing"
 
@@ -10,18 +9,10 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-type repositoryMock struct {
-	mock.Mock
-}
-
-func (r *repositoryMock) Create(person *domain.Person) error {
-	args := r.Called(person)
-	return args.Error(0)
-}
 
 func Test_CreatePerson_Success(t *testing.T) {
 	assert := assert.New(t)
-	repoMock := new(repositoryMock)
+	repoMock := new(PersonRespositoryMock)
 
 	repoMock.On("Create", mock.Anything).Return(nil)
 
@@ -34,7 +25,7 @@ func Test_CreatePerson_Success(t *testing.T) {
 
 func Test_CreatePerson_RepositoryError(t *testing.T) {
 	assert := assert.New(t)
-	repoMock := new(repositoryMock)
+	repoMock := new(PersonRespositoryMock)
 
 	expectedErr := errors.New("Failed to create person")
 	repoMock.On("Create", mock.Anything).Return(expectedErr)
