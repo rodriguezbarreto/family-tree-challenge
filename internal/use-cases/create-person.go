@@ -2,7 +2,7 @@ package usecases
 
 import (
 	"famlily-tree-challenge/internal/domain"
-	"famlily-tree-challenge/internal/domain/repositories"
+	"famlily-tree-challenge/internal/use-cases/repositories"
 )
 
 type createPerson struct {

@@ -3,7 +3,7 @@ package usecases
 import (
 	"errors"
 	"famlily-tree-challenge/internal/domain"
-	"famlily-tree-challenge/internal/domain/repositories"
+	"famlily-tree-challenge/internal/use-cases/repositories"
 )
 
 type updatePerson struct {
