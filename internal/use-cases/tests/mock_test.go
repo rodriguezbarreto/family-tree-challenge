@@ -30,3 +30,8 @@ func (r *PersonRespositoryMock) Update(person *domain.Person) error {
 	args := r.Called(person)
 	return args.Error(0)
 }
+
+func (r *PersonRespositoryMock) Delete(personID string) error {
+	args := r.Called(personID)
+	return args.Error(0)
+}

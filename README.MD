@@ -9,11 +9,11 @@
     
 > ### Criar Use Cases
 ---
-- [ ] Person
+- [x] Person
     - [x] Criar `Person`
     - [x] Listar `Person`
     - [x] Modificar `Person`
-    - [ ] Deletar `Person`
+    - [x] Deletar `Person`
 
 <br>
 
@@ -51,7 +51,9 @@
 > ### Criar infra
 ---
 - [ ] Conexão com banco de dados
+- [ ] Implemtentar ORM
 - [ ] Criar Roteamento
 - [ ] Dockerizar projeto
 - [ ] Criar documentação
+
 
