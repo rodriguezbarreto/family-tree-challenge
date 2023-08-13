@@ -5,15 +5,15 @@ import (
 	"famlily-tree-challenge/internal/use-cases/repositories"
 )
 
-type createPerson struct {
+type CreatePerson struct {
 	respository repositories.PersonRespository
 }
 
-func NewCreatePerson(repository repositories.PersonRespository) *createPerson {
-	return &createPerson{respository: repository}
+func NewCreatePerson(repository repositories.PersonRespository) *CreatePerson {
+	return &CreatePerson{respository: repository}
 }
 
-func (u *createPerson) Execute(name string) error {
+func (u *CreatePerson) Execute(name string) error {
 	newPerson, err := domain.NewPerson(name)
 	if err != nil {
 		return err
