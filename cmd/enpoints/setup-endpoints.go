@@ -12,7 +12,7 @@ func SetupEndpoints(router *chi.Mux) {
 
 	repository := repositories.NewPersonRepository()
 	createPersonUseCase := usecases.NewCreatePerson(repository)
-	controllerCreatePerson := controllers.NewControllerCreatePerson(createPersonUseCase)
+	controllerCreatePerson := controllers.NewCreatePersonController(createPersonUseCase)
 
 	router.Post("/persons", controllerCreatePerson.Handler)
 }
