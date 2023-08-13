@@ -1,4 +1,4 @@
-module famlily-tree-challenge
+module family-tree-challenge
 
 go 1.20
 

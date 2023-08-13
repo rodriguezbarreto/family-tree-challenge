@@ -1,8 +1,8 @@
 package main
 
 import (
-	"famlily-tree-challenge/cmd/configs"
-	"famlily-tree-challenge/cmd/enpoints"
+	"family-tree-challenge/cmd/configs"
+	"family-tree-challenge/cmd/enpoints"
 
 	"net/http"
 

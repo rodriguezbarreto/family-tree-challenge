@@ -2,7 +2,7 @@ package usecases_test
 
 import (
 	"errors"
-	usecases "famlily-tree-challenge/internal/use-cases"
+	usecases "family-tree-challenge/internal/use-cases"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

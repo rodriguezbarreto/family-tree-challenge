@@ -2,7 +2,7 @@ package usecases
 
 import (
 	"errors"
-	"famlily-tree-challenge/internal/use-cases/repositories"
+	"family-tree-challenge/internal/use-cases/repositories"
 )
 
 type deletePerson struct {

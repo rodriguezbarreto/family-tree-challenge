@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"encoding/json"
-	usecases "famlily-tree-challenge/internal/use-cases"
-	"famlily-tree-challenge/internal/use-cases/dto"
+	usecases "family-tree-challenge/internal/use-cases"
+	"family-tree-challenge/internal/use-cases/dto"
 	"net/http"
 )
 

@@ -2,8 +2,8 @@ package usecases_test
 
 import (
 	"errors"
-	"famlily-tree-challenge/internal/domain"
-	usecases "famlily-tree-challenge/internal/use-cases"
+	"family-tree-challenge/internal/domain"
+	usecases "family-tree-challenge/internal/use-cases"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

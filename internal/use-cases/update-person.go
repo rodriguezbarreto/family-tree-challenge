@@ -2,8 +2,8 @@ package usecases
 
 import (
 	"errors"
-	"famlily-tree-challenge/internal/domain"
-	"famlily-tree-challenge/internal/use-cases/repositories"
+	"family-tree-challenge/internal/domain"
+	"family-tree-challenge/internal/use-cases/repositories"
 )
 
 type updatePerson struct {

@@ -1,7 +1,7 @@
 package usecases_test
 
 import (
-	"famlily-tree-challenge/internal/domain"
+	"family-tree-challenge/internal/domain"
 
 	"github.com/stretchr/testify/mock"
 )

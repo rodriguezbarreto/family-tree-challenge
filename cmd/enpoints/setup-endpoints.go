@@ -1,8 +1,8 @@
 package enpoints
 
 import (
-	"famlily-tree-challenge/internal/infra/controllers"
-	usecases "famlily-tree-challenge/internal/use-cases"
+	"family-tree-challenge/internal/infra/controllers"
+	usecases "family-tree-challenge/internal/use-cases"
 
 	"github.com/go-chi/chi"
 )
