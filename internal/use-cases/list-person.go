@@ -5,15 +5,15 @@ import (
 	"family-tree-challenge/internal/use-cases/repositories"
 )
 
-type listPersons struct {
+type ListPerson struct {
 	repository repositories.PersonRespository
 }
 
-func NewListPersons(repository repositories.PersonRespository) *listPersons {
-	return &listPersons{repository: repository}
+func NewListPersons(repository repositories.PersonRespository) *ListPerson {
+	return &ListPerson{repository: repository}
 }
 
-func (u *listPersons) Execute(filterByID *string) ([]*domain.Person, error) {
+func (u *ListPerson) Execute(filterByID *string) ([]*domain.Person, error) {
 	persons, err := u.repository.List(filterByID)
 	if err != nil {
 		return nil, err
