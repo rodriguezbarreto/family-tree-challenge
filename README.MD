@@ -32,7 +32,7 @@
 > ### Criar camada de controle
 ---
 - [ ] Person
-    - [ ] Controlador Criar `Person`
+    - [x] Controlador Criar `Person`
     - [ ] Controlador Listar `Person`
     - [ ] Controlador Modificar `Person`
     - [ ] Controlador Deletar `Person`
@@ -47,12 +47,21 @@
 
 <br>
 
+> ### Criar implementação dos repositórios 
+---
+- [x] Repository `Person`
+- [ ] Repository `Relationship`
+- [ ] Controlador Modificar `Genealogy`
+  
+
+<br>
+
 
 > ### Criar infra
 ---
+- [x] Criar Roteamento
 - [ ] Conexão com banco de dados
 - [ ] Implemtentar ORM
-- [ ] Criar Roteamento
 - [ ] Dockerizar projeto
 - [ ] Criar documentação
 
