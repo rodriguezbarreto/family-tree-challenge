@@ -29,7 +29,6 @@ func (c *listPersonController) Handler(response http.ResponseWriter, request *ht
 	list, err := c.useCase.Execute(idValid)
 	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)
-		response.Write([]byte("Internal Server Error"))
 		return
 	}
 

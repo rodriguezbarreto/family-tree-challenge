@@ -1,5 +1,5 @@
 package dto
 
-type CreatePersonInputDTO struct {
+type PersonInputDTO struct {
 	Name string `json:"name"`
 }

@@ -19,7 +19,7 @@ func Test_UpdatePerson_Success(t *testing.T) {
 
 	useCase := usecases.NewUpdatePerson(repoMock)
 	personToUpdate := &domain.Person{ID: "123", Name: "John Updated"}
-	err := useCase.Execute(personToUpdate)
+	err := useCase.Execute(&personToUpdate.ID, &personToUpdate.Name)
 
 	assert.NoError(err)
 	repoMock.AssertExpectations(t)
@@ -36,7 +36,7 @@ func Test_UpdatePerson_RepositoryError(t *testing.T) {
 
 	useCase := usecases.NewUpdatePerson(repoMock)
 	personToUpdate := &domain.Person{ID: "123", Name: "John Updated"}
-	err := useCase.Execute(personToUpdate)
+	err := useCase.Execute(&personToUpdate.ID, &personToUpdate.Name)
 
 	assert.Error(err)
 	assert.Equal(err, expectedErr)

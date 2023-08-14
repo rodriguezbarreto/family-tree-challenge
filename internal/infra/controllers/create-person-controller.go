@@ -16,7 +16,7 @@ func NewCreatePersonController(useCaseCreateperson *usecases.CreatePerson) *crea
 }
 
 func (c *createPersonController) Handler(response http.ResponseWriter, request *http.Request) {
-	var input dto.CreatePersonInputDTO
+	var input dto.PersonInputDTO
 	err := json.NewDecoder(request.Body).Decode(&input)
 	if err != nil {
 		response.WriteHeader(http.StatusBadRequest)
