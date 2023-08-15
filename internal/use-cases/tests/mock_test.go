@@ -35,3 +35,22 @@ func (r *PersonRespositoryMock) Delete(personID string) error {
 	args := r.Called(personID)
 	return args.Error(0)
 }
+
+type RelationshipRepositoryMock struct {
+	mock.Mock
+}
+
+func (m *RelationshipRepositoryMock) Create(relationship *domain.Relationship) error {
+	args := m.Called(relationship)
+	return args.Error(0)
+}
+
+func (m *RelationshipRepositoryMock) List(relID *string) ([]*domain.Relationship, error) {
+	args := m.Called(relID)
+	return args.Get(0).([]*domain.Relationship), args.Error(1)
+}
+
+func (m *RelationshipRepositoryMock) Delete(relID string) error {
+	args := m.Called(relID)
+	return args.Error(0)
+}

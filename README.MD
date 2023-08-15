@@ -18,7 +18,7 @@
 <br>
 
 - [ ] Relationship
-    - [ ] Criar `Relationship`
+    - [x] Criar `Relationship`
     - [ ] Listar `Relationship`
     - [ ] Modificar `Relationship`
     - [ ] Deletar `Relationship`
