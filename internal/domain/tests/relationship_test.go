@@ -20,7 +20,7 @@ func Test_NewRelationship_ValidRelationship(t *testing.T) {
 
 	rel, err := domain.NewRelationship(*child, *parent)
 	assert.NoError(err)
-	assert.Equal(childName, rel.Children.Name)
+	assert.Equal(childName, rel.Child.Name)
 	assert.Equal(parentName, rel.Parent.Name)
 }
 

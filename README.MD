@@ -50,7 +50,7 @@
 > ### Criar implementação dos repositórios 
 ---
 - [x] Repository `Person`
-- [ ] Repository `Relationship`
+- [x] Repository `Relationship`
 - [ ] Controlador Modificar `Genealogy`
   
 

@@ -8,15 +8,15 @@ import (
 
 type Relationship struct {
 	ID       string `json:"id" validate:"required"`
-	Children Person `json:"children"`
+	Child Person `json:"children"`
 	Parent   Person `json:"parent"`
 }
 
-func NewRelationship(children Person, parent Person) (*Relationship, error) {
+func NewRelationship(child Person, parent Person) (*Relationship, error) {
 	relationship := &Relationship{
-		ID:       uuid.New().String(),
-		Children: children,
-		Parent:   parent,
+		ID:     uuid.New().String(),
+		Child:  child,
+		Parent: parent,
 	}
 
 	err := structErrors.ValidatorStruct(relationship)
