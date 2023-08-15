@@ -33,9 +33,9 @@
 ---
 - [ ] Person
     - [x] Controlador Criar `Person`
-    - [ ] Controlador Listar `Person`
-    - [ ] Controlador Modificar `Person`
-    - [ ] Controlador Deletar `Person`
+    - [x] Controlador Listar `Person`
+    - [x] Controlador Modificar `Person`
+    - [x] Controlador Deletar `Person`
 
 <br>
 
