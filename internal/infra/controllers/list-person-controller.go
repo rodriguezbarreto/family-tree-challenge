@@ -8,17 +8,17 @@ import (
 	"github.com/go-chi/chi"
 )
 
-type listPersonController struct {
+type ListPersonController struct {
 	useCase *usecases.ListPerson
 }
 
-func NewListPersonsController(useCaseListPerson *usecases.ListPerson) *listPersonController {
-	return &listPersonController{
+func NewListPersonsController(useCaseListPerson *usecases.ListPerson) *ListPersonController {
+	return &ListPersonController{
 		useCase: useCaseListPerson,
 	}
 }
 
-func (c *listPersonController) Handler(response http.ResponseWriter, request *http.Request) {
+func (c *ListPersonController) Handler(response http.ResponseWriter, request *http.Request) {
 	id := chi.URLParam(request, "id")
 	var idValid *string
 
