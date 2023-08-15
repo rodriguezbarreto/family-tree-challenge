@@ -60,9 +60,9 @@
 > ### Criar infra
 ---
 - [x] Criar Roteamento
-- [ ] Conexão com banco de dados
-- [ ] Implemtentar ORM
-- [ ] Dockerizar projeto
+- [x] Conexão com banco de dados
+- [x] Implemtentar ORM
+- [x] Dockerizar banco de dados
 - [ ] Criar documentação
 
 
