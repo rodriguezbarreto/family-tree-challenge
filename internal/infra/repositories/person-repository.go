@@ -2,44 +2,44 @@ package repositories
 
 import (
 	"family-tree-challenge/internal/domain"
+
+	"gorm.io/gorm"
 )
 
-type PersonRespository struct{}
+type PersonRespository struct {
+	db *gorm.DB
+}
 
-func NewPersonRepository() *PersonRespository {
-	return &PersonRespository{}
+func NewPersonRepository(connetionDB *gorm.DB) *PersonRespository {
+	return &PersonRespository{
+		db: connetionDB,
+	}
 }
 
 func (r *PersonRespository) Create(person *domain.Person) error {
-	// TODO: Implementar conexão com DB
-	return nil
+	tx := r.db.Create(person)
+	return tx.Error
 }
 
-func (r *PersonRespository) List(filterByID *string) ([]*domain.Person, error) {
+func (r *PersonRespository) List(personID *string) ([]*domain.Person, error) {
+	var list []*domain.Person
 
-	person1 := &domain.Person{
-		ID:   "mock-id-1",
-		Name: "John Doe",
+	if personID != nil {
+		var person domain.Person
+		tx := r.db.First(&person, *personID)
+		return []*domain.Person{&person}, tx.Error
 	}
 
-	person2 := &domain.Person{
-		ID:   "mock-id-2",
-		Name: "Jane Doe",
-	}
-
-	if filterByID != nil {
-		return []*domain.Person{person1}, nil
-	}
-
-	return []*domain.Person{person1, person2}, nil
+	tx := r.db.Find(&list)
+	return list, tx.Error
 }
 
 func (r *PersonRespository) Update(person *domain.Person) error {
-	// TODO: Implementar conexão com DB
-	return nil
+	tx := r.db.Save(person)
+	return tx.Error
 }
 
 func (r *PersonRespository) Delete(personID string) error {
-	// TODO: Implementar conexão com DB
-	return nil
+	tx := r.db.Delete(&domain.Person{}, personID)
+	return tx.Error
 }
