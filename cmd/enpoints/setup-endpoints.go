@@ -1,7 +1,7 @@
 package enpoints
 
 import (
-	"family-tree-challenge/cmd/factories"
+	"family-tree-challenge/internal/infra/factories"
 
 	"github.com/go-chi/chi"
 )

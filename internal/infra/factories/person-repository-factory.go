@@ -2,8 +2,10 @@ package factories
 
 import (
 	"family-tree-challenge/internal/infra/database"
-	"family-tree-challenge/internal/infra/repositories"
+	"family-tree-challenge/internal/infra/database/repositories"
 )
+
+
 
 func PersonRespositoryFactory() *repositories.PersonRespository {
 	connection := database.PostgresConnection()
