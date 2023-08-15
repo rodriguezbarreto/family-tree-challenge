@@ -14,17 +14,17 @@ func SetupEndpoints(router *chi.Mux) {
 	repository := repositories.NewPersonRepository()
 
 	
-	updatePersonUseCase := usecases.NewUpdatePerson(repository)
+	
 	deletePersonUseCase := usecases.NewDeletePerson(repository)
 
 	
-	updatePersonController := controllers.NewUpdatePersonController(updatePersonUseCase)
+	
 	deletePersonController := controllers.NewDeletePersonController(deletePersonUseCase)
 
 	router.Post("/persons", factories.CreatePersonFactory().Handler)
 	router.Get("/persons/{id}", factories.ListPersonFactory().Handler)
 	router.Get("/persons", factories.ListPersonFactory().Handler)
-	router.Put("/persons/{id}", updatePersonController.Handler)
+	router.Put("/persons/{id}", factories.UpdatePersonFactory().Handler)
 	router.Delete("/persons/{id}", deletePersonController.Handler)
 
 }
