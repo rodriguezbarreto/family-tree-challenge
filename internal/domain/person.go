@@ -7,8 +7,8 @@ import (
 )
 
 type Person struct {
-	ID   string `validate:"required"`
-	Name string `validate:"min=3"`
+	ID   string `json:"id" validate:"required"`
+	Name string `json:"name" validate:"min=3"`
 }
 
 func NewPerson(name string) (*Person, error) {

@@ -18,7 +18,7 @@ func Test_NewPerson_CreatePerson(t *testing.T) {
 
 func Test_NewPerson_IDIsNotNil(t *testing.T) {
 	assert := assert.New(t)
-	name := "teste"
+	name := "Jonh"
 
 	person, err := NewPerson(name)
 

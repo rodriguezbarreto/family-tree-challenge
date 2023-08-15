@@ -26,7 +26,7 @@ func (r *PersonRespository) List(personID *string) ([]*domain.Person, error) {
 
 	if personID != nil {
 		var person domain.Person
-		tx := r.db.First(&person, *personID)
+		tx := r.db.First(&person, "id = ?", *personID)
 		return []*domain.Person{&person}, tx.Error
 	}
 
@@ -40,6 +40,7 @@ func (r *PersonRespository) Update(person *domain.Person) error {
 }
 
 func (r *PersonRespository) Delete(personID string) error {
-	tx := r.db.Delete(&domain.Person{}, personID)
+	tx := r.db.Delete(&domain.Person{}, "id = ?", personID)
 	return tx.Error
 }
+
