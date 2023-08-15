@@ -1,20 +1,26 @@
 package database
 
 import (
+	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 func NewDB() *gorm.DB {
-	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+    host := "localhost"
+    port := 5432
+    user := "user"
+    password := "password"
+    dbname := "database"
 
-	if err != nil {
-		panic("fail to connect to database")
-	}
+    dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
-	return db
+    if err != nil {
+        panic("fail to connect to database")
+    }
+
+    return db
 }
 
-// TODO: CRIAR DATABASE POSTGRES
-// TODO: CRIAR VARIAVEIS DE AMBIENTE
+// TODO CRIAR VARIAVEIS DE AMBIENTE
