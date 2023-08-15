@@ -41,5 +41,4 @@ func (c *UpdatePersonController) Handler(response http.ResponseWriter, request *
 	}
 
 	response.WriteHeader(http.StatusOK)
-	response.Write([]byte("Atualização bem-sucedida"))
 }
