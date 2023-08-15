@@ -2,7 +2,7 @@
 > ### Criar camada de domínio
 ---
 - [x] Criar entidade `Person`
-- [ ] Criar entidade `Relationship`
+- [x] Criar entidade `Relationship`
 - [ ] Criar entidade `Genealogy`
 
 <br>
