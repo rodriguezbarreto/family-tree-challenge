@@ -5,15 +5,15 @@ import (
 	"family-tree-challenge/internal/use-cases/repositories"
 )
 
-type deletePerson struct {
+type DeletePerson struct {
 	repository repositories.PersonRespository
 }
 
-func NewDeletePerson(repository repositories.PersonRespository) *deletePerson {
-	return &deletePerson{repository: repository}
+func NewDeletePerson(repository repositories.PersonRespository) *DeletePerson {
+	return &DeletePerson{repository: repository}
 }
 
-func (u *deletePerson) Execute(personID string) error {
+func (u *DeletePerson) Execute(personID string) error {
 	existingPerson, err := u.repository.List(&personID)
 	if err != nil {
 		return err
