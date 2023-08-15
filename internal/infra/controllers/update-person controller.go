@@ -13,7 +13,7 @@ type UpdatePersonController struct {
 	useCase *usecases.UpdatePerson
 }
 
-func NewController(useCase *usecases.UpdatePerson) *UpdatePersonController {
+func NewUpdatePersonController(useCase *usecases.UpdatePerson) *UpdatePersonController {
 	return &UpdatePersonController{
 		useCase: useCase,
 	}
