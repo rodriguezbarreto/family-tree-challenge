@@ -1,7 +1,7 @@
 package domain
 
 import (
-	structErrors "family-tree-challenge/internal/domain/struct-errors"
+	structErrors "family-tree-challenge/internal/domain/errors"
 
 	"github.com/google/uuid"
 )
