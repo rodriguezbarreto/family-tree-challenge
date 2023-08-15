@@ -7,15 +7,15 @@ import (
 	"net/http"
 )
 
-type createPersonController struct {
+type CreatePersonController struct {
 	useCase *usecases.CreatePerson
 }
 
-func NewCreatePersonController(useCaseCreateperson *usecases.CreatePerson) *createPersonController {
-	return &createPersonController{useCase: useCaseCreateperson}
+func NewCreatePersonController(useCaseCreateperson *usecases.CreatePerson) *CreatePersonController {
+	return &CreatePersonController{useCase: useCaseCreateperson}
 }
 
-func (c *createPersonController) Handler(response http.ResponseWriter, request *http.Request) {
+func (c *CreatePersonController) Handler(response http.ResponseWriter, request *http.Request) {
 	var input dto.PersonInputDTO
 	err := json.NewDecoder(request.Body).Decode(&input)
 	if err != nil {
