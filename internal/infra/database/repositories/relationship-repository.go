@@ -24,10 +24,20 @@ func (r *RelationshipRepository) Create(relationship *domain.Relationship) error
 
 func (r *RelationshipRepository) List(filter *dto.RelationshipFilter) ([]*domain.Relationship, error) {
 	var list []*domain.Relationship
-	tx := r.db.Preload("Child").Preload("Parent").Find(&list)
-	return list, tx.Error
+	query := r.db.Preload("Child").Preload("Parent")
 
-	//TODO: IMPLEMENTAR FILTROS
+	if filter.RelID != nil {
+		query = query.Where("id = ?", *filter.RelID)
+	}
+	if filter.ChildID != nil {
+		query = query.Where("child_id = ?", *filter.ChildID)
+	}
+	if filter.ParentID != nil {
+		query = query.Where("parent_id = ?", *filter.ParentID)
+	}
+
+	tx := query.Find(&list)
+	return list, tx.Error
 }
 
 func (r *RelationshipRepository) GetByID(relID string) (*domain.Relationship, error) {
