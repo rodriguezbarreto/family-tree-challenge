@@ -7,7 +7,8 @@ import (
 
 func DelePersonFactory() *controllers.DeletePersonController {
 	repository := PersonRespositoryFactory()
-	deletePersonUseCase := usecases.NewDeletePerson(repository)
+	repositoryRel := RelationshipRespositoryFactory()
+	deletePersonUseCase := usecases.NewDeletePerson(repository, repositoryRel)
 	deletePersonController := controllers.NewDeletePersonController(deletePersonUseCase)
 
 	return deletePersonController
