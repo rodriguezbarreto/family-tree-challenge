@@ -39,6 +39,6 @@ func (r *RelationshipRepository) GetByID(relID string) (*domain.Relationship, er
 }
 
 func (r *RelationshipRepository) Delete(relID string) error {
-	// TODO: IMPLEMENTAR CONEXÃO COM BANCO DE DADOS
-	panic("unimplemented")
+	tx := r.db.Delete(&domain.Relationship{}, "id = ?", relID)
+	return tx.Error
 }
