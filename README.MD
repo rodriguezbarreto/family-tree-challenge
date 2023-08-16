@@ -17,11 +17,10 @@
 
 <br>
 
-- [ ] Relationship
+- [x] Relationship
     - [x] Criar `Relationship`
     - [x] Listar `Relationship`
-    - [ ] Modificar `Relationship`
-    - [ ] Deletar `Relationship`
+    - [x] Deletar `Relationship`
 
 <br>
 
@@ -42,7 +41,6 @@
 - [ ] Relationship
     - [ ] Controlador Criar `Relationship`
     - [ ] Controlador Listar `Relationship`
-    - [ ] Controlador Modificar `Relationship`
     - [ ] Controlador Deletar `Relationship`
 
 <br>

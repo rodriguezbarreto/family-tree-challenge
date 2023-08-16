@@ -8,5 +8,6 @@ import (
 type RelationshipRespository interface {
 	Create(relationship *domain.Relationship) error
 	List(filter *dto.RelationshipFilter) ([]*domain.Relationship, error)
+	GetByID(relID string) (*domain.Relationship, error)
 	Delete(relID string) error
 }

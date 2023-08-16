@@ -51,6 +51,14 @@ func (m *RelationshipRepositoryMock) List(filter *dto.RelationshipFilter) ([]*do
 	return args.Get(0).([]*domain.Relationship), args.Error(1)
 }
 
+func (m *RelationshipRepositoryMock) GetByID(relID string) (*domain.Relationship, error) {
+	args := m.Called(relID)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).(*domain.Relationship), args.Error(1)
+}
+
 func (m *RelationshipRepositoryMock) Delete(relID string) error {
 	args := m.Called(relID)
 	return args.Error(0)
