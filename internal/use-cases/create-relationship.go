@@ -8,11 +8,11 @@ import (
 )
 
 type CreateRelationship struct {
-	personRepository       repositories.PersonRespository
-	relationshipRepository repositories.RelationshipRespository
+	personRepository       repositories.PersonRepository
+	relationshipRepository repositories.RelationshipRepository
 }
 
-func NewCreateRelationship(personRepo repositories.PersonRespository, relRepo repositories.RelationshipRespository) *CreateRelationship {
+func NewCreateRelationship(personRepo repositories.PersonRepository, relRepo repositories.RelationshipRepository) *CreateRelationship {
 	return &CreateRelationship{
 		personRepository:       personRepo,
 		relationshipRepository: relRepo,

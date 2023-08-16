@@ -6,10 +6,10 @@ import (
 )
 
 type DeletePerson struct {
-	repository repositories.PersonRespository
+	repository repositories.PersonRepository
 }
 
-func NewDeletePerson(repository repositories.PersonRespository) *DeletePerson {
+func NewDeletePerson(repository repositories.PersonRepository) *DeletePerson {
 	return &DeletePerson{repository: repository}
 }
 

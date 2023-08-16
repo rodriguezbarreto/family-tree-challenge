@@ -6,10 +6,10 @@ import (
 )
 
 type UpdatePerson struct {
-	repository repositories.PersonRespository
+	repository repositories.PersonRepository
 }
 
-func NewUpdatePerson(repository repositories.PersonRespository) *UpdatePerson {
+func NewUpdatePerson(repository repositories.PersonRepository) *UpdatePerson {
 	return &UpdatePerson{repository: repository}
 }
 

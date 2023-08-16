@@ -7,10 +7,10 @@ import (
 )
 
 type ListRelationship struct {
-	repository repositories.RelationshipRespository
+	repository repositories.RelationshipRepository
 }
 
-func NewListRelationship(repository repositories.RelationshipRespository) *ListRelationship {
+func NewListRelationship(repository repositories.RelationshipRepository) *ListRelationship {
 	return &ListRelationship{repository: repository}
 }
 

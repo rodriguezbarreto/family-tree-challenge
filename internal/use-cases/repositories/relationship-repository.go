@@ -5,7 +5,7 @@ import (
 	"family-tree-challenge/internal/use-cases/dto"
 )
 
-type RelationshipRespository interface {
+type RelationshipRepository interface {
 	Create(relationship *domain.Relationship) error
 	List(filter *dto.RelationshipFilter) ([]*domain.Relationship, error)
 	GetByID(relID string) (*domain.Relationship, error)

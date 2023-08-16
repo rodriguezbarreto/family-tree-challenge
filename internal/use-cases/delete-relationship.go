@@ -6,10 +6,10 @@ import (
 )
 
 type DeleteRelationship struct {
-	relationshipRepository repositories.RelationshipRespository
+	relationshipRepository repositories.RelationshipRepository
 }
 
-func NewDeleteRelationship(repository repositories.RelationshipRespository) *DeleteRelationship {
+func NewDeleteRelationship(repository repositories.RelationshipRepository) *DeleteRelationship {
 	return &DeleteRelationship{relationshipRepository: repository}
 }
 
