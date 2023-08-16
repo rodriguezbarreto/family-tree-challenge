@@ -22,7 +22,7 @@ func PostgresConnection() *gorm.DB {
 		panic("fail to connect to database")
 	}
 
-	db.AutoMigrate(&domain.Person{})
+	db.AutoMigrate(&domain.Person{}, &domain.Relationship{})
 
 	return db
 }
