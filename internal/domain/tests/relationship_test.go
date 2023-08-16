@@ -22,6 +22,8 @@ func Test_NewRelationship_ValidRelationship(t *testing.T) {
 	assert.NoError(err)
 	assert.Equal(childName, rel.Child.Name)
 	assert.Equal(parentName, rel.Parent.Name)
+	assert.Equal(child.ID, rel.ChildID)
+	assert.Equal(parent.ID, rel.ParentID)
 }
 
 func Test_NewRelationship_IDIsNotNil(t *testing.T) {

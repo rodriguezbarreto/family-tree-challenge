@@ -7,16 +7,20 @@ import (
 )
 
 type Relationship struct {
-	ID       string `json:"id" validate:"required"`
-	Child Person `json:"children"`
-	Parent   Person `json:"parent"`
+	ID       string `gorm:"primary_key" json:"id" validate:"required"`
+	ChildID  string `json:"child_id" validate:"required"`
+	ParentID string `json:"parent_id" validate:"required"`
+	Child    Person `gorm:"foreignKey:ChildID;references:ID"`
+	Parent   Person `gorm:"foreignKey:ParentID;references:ID"`
 }
 
 func NewRelationship(child Person, parent Person) (*Relationship, error) {
 	relationship := &Relationship{
-		ID:     uuid.New().String(),
-		Child:  child,
-		Parent: parent,
+		ID:       uuid.New().String(),
+		ChildID:  child.ID,
+		ParentID: parent.ID,
+		Child:    child,
+		Parent:   parent,
 	}
 
 	err := structErrors.ValidatorStruct(relationship)
