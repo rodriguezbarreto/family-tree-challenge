@@ -38,10 +38,10 @@
 
 <br>
 
-- [ ] Relationship
-    - [ ] Controlador Criar `Relationship`
-    - [ ] Controlador Listar `Relationship`
-    - [ ] Controlador Deletar `Relationship`
+- [x] Relationship
+    - [x] Controlador Criar `Relationship`
+    - [x] Controlador Listar `Relationship`
+    - [x] Controlador Deletar `Relationship`
 
 <br>
 
