@@ -13,8 +13,8 @@ func NewListPersons(repository repositories.PersonRespository) *ListPerson {
 	return &ListPerson{repository: repository}
 }
 
-func (u *ListPerson) Execute(filterByID *string) ([]*domain.Person, error) {
-	persons, err := u.repository.List(filterByID)
+func (u *ListPerson) Execute(personID *string) ([]*domain.Person, error) {
+	persons, err := u.repository.List(personID)
 	if err != nil {
 		return nil, err
 	}

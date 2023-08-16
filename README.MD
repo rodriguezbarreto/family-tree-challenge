@@ -19,7 +19,7 @@
 
 - [ ] Relationship
     - [x] Criar `Relationship`
-    - [ ] Listar `Relationship`
+    - [x] Listar `Relationship`
     - [ ] Modificar `Relationship`
     - [ ] Deletar `Relationship`
 

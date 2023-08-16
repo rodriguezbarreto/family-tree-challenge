@@ -2,6 +2,7 @@ package usecases_test
 
 import (
 	"family-tree-challenge/internal/domain"
+	"family-tree-challenge/internal/use-cases/dto"
 
 	"github.com/stretchr/testify/mock"
 )
@@ -45,8 +46,8 @@ func (m *RelationshipRepositoryMock) Create(relationship *domain.Relationship) e
 	return args.Error(0)
 }
 
-func (m *RelationshipRepositoryMock) List(relID *string) ([]*domain.Relationship, error) {
-	args := m.Called(relID)
+func (m *RelationshipRepositoryMock) List(filter *dto.RelationshipFilter) ([]*domain.Relationship, error) {
+	args := m.Called(filter)
 	return args.Get(0).([]*domain.Relationship), args.Error(1)
 }
 
