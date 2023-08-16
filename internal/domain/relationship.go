@@ -10,8 +10,8 @@ type Relationship struct {
 	ID       string `gorm:"primary_key" json:"id" validate:"required"`
 	ChildID  string `json:"child_id" validate:"required"`
 	ParentID string `json:"parent_id" validate:"required"`
-	Child    Person `gorm:"foreignKey:ChildID;references:ID"`
-	Parent   Person `gorm:"foreignKey:ParentID;references:ID"`
+	Child    Person `json:"child"`
+	Parent   Person `json:"parent"`
 }
 
 func NewRelationship(child Person, parent Person) (*Relationship, error) {

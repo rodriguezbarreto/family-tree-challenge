@@ -24,7 +24,7 @@ func (r *RelationshipRepository) Create(relationship *domain.Relationship) error
 
 func (r *RelationshipRepository) List(filter *dto.RelationshipFilter) ([]*domain.Relationship, error) {
 	var list []*domain.Relationship
-	tx := r.db.Find(&list)
+	tx := r.db.Preload("Child").Preload("Parent").Find(&list)
 	return list, tx.Error
 
 	//TODO: IMPLEMENTAR FILTROS
@@ -33,7 +33,7 @@ func (r *RelationshipRepository) List(filter *dto.RelationshipFilter) ([]*domain
 func (r *RelationshipRepository) GetByID(relID string) (*domain.Relationship, error) {
 	var relationship domain.Relationship
 
-	tx := r.db.First(&relationship, "id = ?", relID)
+	tx := r.db.Preload("Child").Preload("Parent").First(&relationship, "id = ?", relID)
 
 	return &relationship, tx.Error
 }

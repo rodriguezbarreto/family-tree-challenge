@@ -13,8 +13,9 @@ func SetupEndpoints(router *chi.Mux) {
 	router.Get("/persons", factories.ListPersonFactory().Handler)
 	router.Put("/persons/{id}", factories.UpdatePersonFactory().Handler)
 	router.Delete("/persons/{id}", factories.DelePersonFactory().Handler)
-	
+
 	// RELATIONSHIPS
 	router.Post("/relationships", factories.CreateRelationshipFactory().Handler)
+	router.Get("/relationships", factories.ListRelationshipFactory().Handler)
 
 }
