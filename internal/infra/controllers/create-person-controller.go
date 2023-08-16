@@ -20,11 +20,13 @@ func (c *CreatePersonController) Handler(response http.ResponseWriter, request *
 	err := json.NewDecoder(request.Body).Decode(&input)
 	if err != nil {
 		response.WriteHeader(http.StatusBadRequest)
+		return
 	}
 
 	err = c.useCase.Execute(input.Name)
 	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)
+		return
 	}
 
 	response.WriteHeader(http.StatusContinue)
