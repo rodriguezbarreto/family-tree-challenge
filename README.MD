@@ -49,7 +49,6 @@
 - [x] Repository `Person`
 - [x] Repository `Relationship`
 
-  
 
 <br>
 
@@ -60,6 +59,7 @@
 - [x] Conexão com banco de dados
 - [x] Implemtentar ORM
 - [x] Dockerizar banco de dados
+- [x] Dockerizar banco de app
 - [ ] Criar documentação
 
 
