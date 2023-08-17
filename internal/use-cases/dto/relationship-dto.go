@@ -10,3 +10,8 @@ type RelationshipFilter struct {
 	ChildID  *string `json:"childId"`
 	ParentID *string `json:"parentId"`
 }
+
+type BaconNumberInputDTO struct {
+	SourceID string `json:"sourceId"`
+	TargetID string `json:"targetId"`
+}

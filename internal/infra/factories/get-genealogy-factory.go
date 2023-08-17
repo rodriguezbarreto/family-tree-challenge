@@ -8,8 +8,8 @@ import (
 func GetGenealogyFactory() *controllers.GetGenealogyController {
 	repoRel := RelationshipRespositoryFactory()
 	repoPerson := PersonRespositoryFactory()
-	GetGenealogyUseCase := usecases.NewGetGenealogy(repoRel, repoPerson)
-	GetGenealogyController := controllers.NewGetGenealogyController(GetGenealogyUseCase)
+	getGenealogyUseCase := usecases.NewGetGenealogy(repoRel, repoPerson)
+	getGenealogyController := controllers.NewGetGenealogyController(getGenealogyUseCase)
 
-	return GetGenealogyController
+	return getGenealogyController
 }
