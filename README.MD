@@ -2,7 +2,7 @@
 
 ### Descrição
 
-Este repositório contém uma API escrita em Golang que se conecta a um banco de dados PostgreSQL usando Docker e Docker Compose.
+Este repositório contém uma API escrita em Golang que criar e gerenciar uma árvore genealógica,
 
 ### Pré-requisitos
 
