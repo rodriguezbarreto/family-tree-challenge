@@ -3,7 +3,6 @@
 ---
 - [x] Criar entidade `Person`
 - [x] Criar entidade `Relationship`
-- [ ] Criar entidade `Genealogy`
 
 <br>
     
@@ -24,13 +23,13 @@
 
 <br>
 
-- [ ] Criar Ler `Genealogy`
+- [x] Criar Ler `Genealogy`
 
 <br>
 
 > ### Criar camada de controle
 ---
-- [ ] Person
+- [x] Person
     - [x] Controlador Criar `Person`
     - [x] Controlador Listar `Person`
     - [x] Controlador Modificar `Person`
@@ -49,7 +48,7 @@
 ---
 - [x] Repository `Person`
 - [x] Repository `Relationship`
-- [ ] Controlador Modificar `Genealogy`
+
   
 
 <br>
