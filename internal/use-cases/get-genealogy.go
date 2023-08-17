@@ -47,9 +47,7 @@ func (u *GetGenealogy) Execute(personID *string, depthLimit int) (*dto.Genealogy
 }
 
 func (u *GetGenealogy) getAncestors(personID *string, members *[]dto.Member, depthLimit int, currentDepth int) error {
-	println(depthLimit, currentDepth)
 	if depthLimit != -1 && currentDepth > depthLimit {
-		println("acabou")
 		return nil
 	}
 
