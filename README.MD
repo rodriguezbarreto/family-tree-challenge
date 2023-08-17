@@ -42,7 +42,7 @@ Este repositório contém uma API escrita em Golang que criar e gerenciar uma á
    docker-compose down
     ```
 
-6. A uma arquivo para popular o banco de dados com algumas informações as instruções para semear o banco de dados é:
+6. Há um arquivo para preencher o banco de dados com algumas informações. Siga as instruções a seguir para semear o banco de dados:
 
     ```shell
    cd cmd/seed
