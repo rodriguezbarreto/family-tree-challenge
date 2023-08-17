@@ -130,3 +130,284 @@ Este repositório contém uma API escrita em Golang que criar e gerenciar uma á
     ├── go.sum
     └── README.MD
 
+<br>
+
+### Endpoints
+
+
+---
+>### Persons
+#### POST `/persons`
+
+Create Person
+
+- **Request Body:** JSON
+    ```Json
+    {
+        "name": "Daniel"
+    }
+    ```
+
+- **Response:**
+  - **HTTP 201**: Pessoa criada com sucesso
+  - **HTTP 400**: Requisição inválida.
+  - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+
+#### GET `/persons/{id}`
+
+List Persons by ID
+
+- **Parameters:** 
+    + **`id`** (int, path, obrigatório): ID da `Person`.
+- **Response Body:** JSON
+    ```Json
+    {
+        "id": "7f272309-bd0b-4cf3-8c09-81391ba2d2df",
+        "name": "Sonny"
+    }
+    ```
+- **Status Response:**
+    - **HTTP 200**: Retorna JSON com informações da pessoa.
+    - **HTTP 404**: Pessoa não encontrada.
+    - **HTTP 400**: Requisição inválida.
+    - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+
+#### GET `/persons`
+
+List all Persons
+
+- **Response Body:** JSON
+    ```Json
+    {
+        "id": "3c8f6f29-9dab-4dfc-9fee-a93279865e89",
+        "name": "Ann"
+    },
+    {
+        "id": "d3ab4771-e066-4e26-b13e-986e92241601",
+        "name": "Dunny"
+    },
+    {
+        "id": "b1c6dd69-0abf-4aeb-ad48-9e838fd76d34",
+        "name": "Bruce"
+    },
+    {
+        "id": "bc1afa20-a896-4085-9700-44f7eb74106a",
+        "name": "Advick"
+    }
+    ```
+
+- **Status Response:**
+    - **HTTP 200**: Retorna JSON com informações das pessoas.
+    - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+
+#### PUT `/persons/{id}`
+
+Update Person
+
+- **Parameters:**
+  - `id` (int, path, obrigatório): ID da pessoa.
+- **Request Body:** JSON
+    ```Json
+    {
+        "name": "Sonny"
+    }
+    ```
+- **Status Response:**
+    - **HTTP 201**: Pessoa atualizada com sucesso
+    - **HTTP 404**: Pessoa não encontrada.
+    - **HTTP 400**: Requisição inválida.
+    - **HTTP 500**: Erro interno do servidor
+
+<br>
+
+---
+
+#### DELETE `/persons/{id}`
+
+Delete Person
+
+- **Parameters:** 
+  - `id` (int, path, obrigatório): ID da pessoa.
+- **Status Response:**
+    - **HTTP 204**: Pessoa Deletada com sucesso.
+    - **HTTP 400**: Requisição inválida.
+    - **HTTP 500**: Erro interno do servidor
+
+<br>
+
+---
+>### Reelationships
+
+Create Relationship
+
+- **Request Body:** JSON
+    ```Json
+    {
+        "child": "da2e1e9a-0d12-4506-93e1-833d6887a83f",
+        "parent": "23dc076d-8eed-4349-bffa-e0fcce80d5f1"
+    }
+    ```
+- **Response:**
+  - **HTTP 201**: Relacionamento criado com sucesso.
+  - **HTTP 400**: Requisição inválida.
+  - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+#### GET `/relationships`
+
+List all Relationship.
+
+- **Parameters:** 
+  - `relId` (query string): Filtra relacionamento por ID
+  - `childId` (query string): Filtra todos relacionamentos na condição de filho
+  - `parentId` (query string): Filtra todos relacionamentos na condição de pai
+
+  <br>
+
+- **Response Body:** JSON
+    ```Json
+    [
+       {
+            "id": "4a82227b-c64b-462e-87de-6b3a49521231",
+            "child_id": "3c8f6f29-9dab-4dfc-9fee-a93279865e89",
+            "parent_id": "7f272309-bd0b-4cf3-8c09-81391ba2d2df",
+            "child": {
+                "id": "3c8f6f29-9dab-4dfc-9fee-a93279865e89",
+                "name": "Ann"
+            },
+            "parent": {
+                "id": "7f272309-bd0b-4cf3-8c09-81391ba2d2df",
+                "name": "Sonny"
+            }
+        },
+        {
+            "id": "93ca5dc7-c45f-4c37-951d-56bd8e3be415",
+            "child_id": "6ea48a6b-283d-4832-a60c-70c6d834b79e",
+            "parent_id": "da6e7212-4f6a-4c3e-adf8-8aa443006df4",
+            "child": {
+                "id": "6ea48a6b-283d-4832-a60c-70c6d834b79e",
+                "name": "Phoebe"
+            },
+            "parent": {
+                "id": "da6e7212-4f6a-4c3e-adf8-8aa443006df4",
+                "name": "Martin"
+            }
+        },
+    ]
+    ```
+
+- **Status Response:**
+  - **HTTP 200**: Retorna JSON com uma lista de relacionamentos.
+  - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+>### Genealogy
+
+#### GET `/genealogy/{id}`
+
+Get Genealogy.
+
+- **Parameters:** 
+  - `id` (int, path, obrigatório): ID da pessoa.
+
+- **Response Body:** JSON
+    ```Json
+   {
+        "members": [
+            {
+                "name": "Phoebe",
+                "relationships": [
+                    {
+                        "name": "Martin",
+                        "relationship": "parent"
+                    },
+                    {
+                        "name": "Anastasia",
+                        "relationship": "parent"
+                    }
+                ]
+            },
+            {
+                "name": "Anastasia",
+                "relationships": []
+            },
+            {
+                "name": "Martin",
+                "relationships": []
+            },
+            {
+                "name": "Bruce",
+                "relationships": [
+                    {
+                        "name": "Phoebe",
+                        "relationship": "parent"
+                    }
+                ]
+            },
+            {
+                "name": "Dunny",
+                "relationships": [
+                    {
+                        "name": "Phoebe",
+                        "relationship": "parent"
+                    }
+                ]
+            },
+            {
+                "name": "Clark",
+                "relationships": [
+                    {
+                        "name": "Anastasia",
+                        "relationship": "parent"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+- **Status Response:**
+  - **HTTP 200**: Retorna JSON com a árvore genealógica.
+  - **HTTP 404**: Pessoa não encontrada.
+  - **HTTP 500**: Erro interno do servidor.
+
+<br>
+
+---
+#### GET `/genealogy/bacon-number`
+
+Get Bacon Number.
+
+- **Request Body:** JSON
+    ```Json
+    {
+        "sourceId": "b1c6dd69-0abf-4aeb-ad48-9e838fd76d34",
+        "targetId": "401244a0-cc21-46e9-a1b8-27067d4da7c0"
+    }
+    ```
+
+- **Response Body:** JSON
+    ```Json
+    {
+        "baconNumber": "4"
+    }   
+    ```
+
+- **Status Response:**
+  - **HTTP 200**: Retorna JSON com o Bacon Number.
+  - **HTTP 500**: Erro interno do servidor.
