@@ -25,7 +25,7 @@ func (c *GetGenealogyController) Handler(response http.ResponseWriter, request *
 	if id != "" {
 		idValid = &id
 	}
-	maxDepht := 3
+	maxDepht := 1
 
 	// TODO: ESTABELECER REGRA PARA PROFUNDIDADE
 

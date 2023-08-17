@@ -14,20 +14,31 @@ type GetGenealogy struct {
 }
 
 func NewGetGenealogy(repoRel repositories.RelationshipRepository, repoPerson repositories.PersonRepository) *GetGenealogy {
-	allPersons, _ := repoPerson.List(nil)
-	allRels, _ := repoRel.List(&dto.RelationshipFilter{})
-
 	return &GetGenealogy{
 		repoRel:    repoRel,
 		repoPerson: repoPerson,
-		allPersons: allPersons,
-		allRels:    allRels,
 	}
 }
 
 func (u *GetGenealogy) Execute(personID *string, depthLimit int) (*dto.Genealogy, error) {
 	genealogy := &dto.Genealogy{Members: []dto.Member{}}
-	err := u.getAncestors(personID, &genealogy.Members, depthLimit, 0)
+
+	err := u.initialActions(personID)
+	if err != nil {
+		return nil, err
+	}
+
+	err = u.getAncestors(personID, &genealogy.Members, depthLimit, 0)
+	if err != nil {
+		return nil, err
+	}
+
+	err = u.getChildren(personID, &genealogy.Members, 0)
+	if err != nil {
+		return nil, err
+	}
+
+	err = u.getSiblingsAndUnclesAndAunts(personID, &genealogy.Members)
 	if err != nil {
 		return nil, err
 	}
@@ -36,7 +47,9 @@ func (u *GetGenealogy) Execute(personID *string, depthLimit int) (*dto.Genealogy
 }
 
 func (u *GetGenealogy) getAncestors(personID *string, members *[]dto.Member, depthLimit int, currentDepth int) error {
+	println(depthLimit, currentDepth)
 	if depthLimit != -1 && currentDepth > depthLimit {
+		println("acabou")
 		return nil
 	}
 
@@ -55,6 +68,42 @@ func (u *GetGenealogy) getAncestors(personID *string, members *[]dto.Member, dep
 	}
 
 	*members = append([]dto.Member{member}, *members...)
+	return nil
+}
+
+func (u *GetGenealogy) getChildren(personID *string, members *[]dto.Member, currentDepth int) error {
+	person := u.getPersonByID(*personID)
+	relationships := u.getRelationshipsByParentID(person.ID)
+	
+	for _, rel := range relationships {
+		childMember := dto.Member{Name: rel.Child.Name, Relationships: []dto.Relationship{
+			{Name: person.Name, Relationship: "parent"},
+		}}
+		
+		*members = append(*members, childMember)
+	}
+	return nil
+}
+
+func (u *GetGenealogy) getSiblingsAndUnclesAndAunts(personID *string, members *[]dto.Member) error {
+	person := u.getPersonByID(*personID)
+	relationships := u.getRelationshipsByChildID(person.ID)
+
+	for _, rel := range relationships {
+		siblings := u.getRelationshipsByParentID(rel.Parent.ID)
+
+		for _, siblingRel := range siblings {
+			if siblingRel.Child.ID != person.ID {
+				siblingMember := dto.Member{Name: siblingRel.Child.Name, Relationships: []dto.Relationship{
+					{Name: rel.Parent.Name, Relationship: "parent"},
+				}}
+				*members = append(*members, siblingMember)
+			}
+		}
+
+		unclesAndAunts := u.getUnclesAndAunts(rel.Parent.ID)
+		*members = append(*members, unclesAndAunts...)
+	}
 	return nil
 }
 
@@ -77,3 +126,54 @@ func (u *GetGenealogy) getRelationshipsByChildID(childID string) []*domain.Relat
 	return relationships
 }
 
+func (u *GetGenealogy) getUnclesAndAunts(parentID string) []dto.Member {
+	var unclesAndAunts []dto.Member
+	parentsOfParent := u.getRelationshipsByChildID(parentID)
+
+	for _, parentOfParentRel := range parentsOfParent {
+		siblingsOfParent := u.getRelationshipsByParentID(parentOfParentRel.Parent.ID)
+		for _, siblingOfParentRel := range siblingsOfParent {
+			if siblingOfParentRel.Child.ID != parentID {
+				uncleOrAunt := dto.Member{Name: siblingOfParentRel.Child.Name, Relationships: []dto.Relationship{
+					{Name: parentOfParentRel.Parent.Name, Relationship: "parent"},
+				}}
+				unclesAndAunts = append(unclesAndAunts, uncleOrAunt)
+			}
+		}
+	}
+	return unclesAndAunts
+}
+
+func (u *GetGenealogy) getRelationshipsByParentID(parentID string) []*domain.Relationship {
+	var relationships []*domain.Relationship
+	for _, rel := range u.allRels {
+		if rel.Parent.ID == parentID {
+			relationships = append(relationships, rel)
+		}
+	}
+	return relationships
+}
+
+
+
+func (u *GetGenealogy) initialActions(personID *string) error {
+
+	_, err := u.repoPerson.List(personID)
+	if err != nil {
+		return err
+	}
+
+	allPersons, err := u.repoPerson.List(nil)
+	if err != nil {
+		return err
+	}
+	u.allPersons = allPersons
+
+	allRels, err := u.repoRel.List(&dto.RelationshipFilter{})
+	if err != nil {
+		return err
+	}
+	u.allRels = allRels
+
+	return nil
+}

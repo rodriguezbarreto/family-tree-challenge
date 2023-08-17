@@ -12,7 +12,7 @@ func SeedDatabase(db *gorm.DB) error {
 	relationshipRepo := repositories.NewRelationshipRepository(db)
 
 
-	peopleNames := []string{"Sonny", "Ann", "Dunny", "Bruce", "Advick", "Marting", "Phoebe", "Anastasia", "Clark", "Jaqueline", "Oprah", "Eric", "Ellen", "Ariel", "Melody"}
+	peopleNames := []string{"Sonny", "Ann", "Dunny", "Bruce", "Advick", "Martin", "Phoebe", "Anastasia", "Clark", "Jaqueline", "Oprah", "Eric", "Ellen", "Ariel", "Melody"}
 	peopleMap := map[string]*domain.Person{}
 
 	for _, name := range peopleNames {
@@ -33,20 +33,21 @@ func SeedDatabase(db *gorm.DB) error {
 		Child  string
 	}{
 		{"Sonny", "Ann"},
+		{"Martin", "Phoebe"},
+		{"Anastasia", "Phoebe"},
+		{"Anastasia", "Clark"},
+		{"Oprah", "Eric"},
+		{"Ellen", "Eric"},
 		{"Ann", "Dunny"},
 		{"Ann", "Bruce"},
 		{"Advick", "Dunny"},
 		{"Advick", "Bruce"},
-		{"Marting", "Phoebe"},
-		{"Anastasia", "Phoebe"},
 		{"Phoebe", "Bruce"},
-		{"Anastasia", "Clark"},
+		{"Phoebe", "Dunny"},
 		{"Clark", "Jaqueline"},
-		{"Oprah", "Eric"},
 		{"Eric", "Jaqueline"},
-		{"Ellen", "Eric"},
-		{"Ariel", "Melody"},
 		{"Eric", "Melody"},
+		{"Ariel", "Melody"},
 	}
 
 	for _, relation := range relations {
