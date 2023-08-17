@@ -3,7 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	usecases "family-tree-challenge/internal/use-cases"
+	"log"
 	"net/http"
+	"os"
+	"strconv"
 
 	"github.com/go-chi/chi"
 )
@@ -25,11 +28,14 @@ func (c *GetGenealogyController) Handler(response http.ResponseWriter, request *
 	if id != "" {
 		idValid = &id
 	}
-	maxDepht := 1
 
-	// TODO: ESTABELECER REGRA PARA PROFUNDIDADE
+	maxDepthStr := os.Getenv("MAX_DEPTH")
+	maxDepth, err := strconv.Atoi(maxDepthStr)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
 
-	familyTree, err := c.useCase.Execute(idValid, maxDepht)
+	familyTree, err := c.useCase.Execute(idValid, maxDepth)
 	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)
 		return
