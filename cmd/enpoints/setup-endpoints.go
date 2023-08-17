@@ -19,4 +19,7 @@ func SetupEndpoints(router *chi.Mux) {
 	router.Get("/relationships", factories.ListRelationshipFactory().Handler)
 	router.Delete("/relationships/{id}", factories.DeleteRelationshipFactory().Handler)
 
+	// GENEALOGY
+	router.Get("/genealogy/{id}", factories.GetGenealogyFactory().Handler)
+
 }

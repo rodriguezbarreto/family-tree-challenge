@@ -1,11 +1,15 @@
 package dto
 
-type FamilyMember struct {
-	Name          string           `json:"name"`
-	Relationships []FamilyRelation `json:"relationships"`
+type Genealogy struct {
+	Members []Member `json:"members"`
 }
 
-type FamilyRelation struct {
+type Member struct {
+	Name          string         `json:"name"`
+	Relationships []Relationship `json:"relationships"`
+}
+
+type Relationship struct {
 	Name         string `json:"name"`
 	Relationship string `json:"relationship"`
 }
