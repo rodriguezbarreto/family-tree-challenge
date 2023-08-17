@@ -2,7 +2,7 @@
 
 ### Descrição
 
-Este repositório contém uma API escrita em Golang que criar e gerenciar uma árvore genealógica,
+Este repositório contém uma API escrita em Golang que criar e gerenciar uma árvore genealógica.
 
 ### Pré-requisitos
 
