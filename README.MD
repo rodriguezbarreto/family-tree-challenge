@@ -9,45 +9,48 @@ Este repositório contém uma API escrita em Golang que criar e gerenciar uma á
 - Docker (https://docs.docker.com/get-docker/)
 - Docker Compose (https://docs.docker.com/compose/install/)
 
-### Como rodar a aplicação
+### Como rodar usando docker e docker compose
 
 1. Clone o repositório para sua máquina local:
    ```shell
    git clone https://github.com/rodriguezbarreto/family-tree-challenge
    cd family-tree-challenge
    ```
-   
-2. Construa a imagem Docker da API:
+   <br>
 
+2. Crie o arquivo .env copiando as informações do arquivo .env.example:
     ```shell
-    docker build -t family-tree-challenge .
+    cp .env.example .env
     ```
+    <br>
 
 3. Inicie a aplicação e o banco de dados com o Docker Compose:
 
     ```shell
-   docker-compose up -d
+   docker-compose up
     ```
-    Este comando iniciará dois contêineres, um para a API e outro para o banco de dados PostgreSQL.
+    Na primeira execução deste comando além de subir a aplicação e o banco de dados, será feito tambem o build das imagens dos dois contêineres.
 
-4. Acesse a API no seu navegador ou com um cliente HTTP, como o curl:
+    <br>
+
+4. Acesse a API no URL:
 
     ```shell
-    curl http://localhost:8080
+    http://localhost:8080
     ```
 
-5. Se você quiser interromper e remover os contêineres, use o seguinte comando:
+   <br>
 
+5. Há um módulo nesta aplicação para popular o banco de dados com dados iniciais, o que pode facilitar o seu uso. Caso deseje utilizá-lo, execute o seguinte comando:
     ```shell
-   docker-compose down
+    docker exec family-tree-challenge-app-1 /app/seed
     ```
 
-6. Há um arquivo para preencher o banco de dados com algumas informações. Siga as instruções a seguir para semear o banco de dados:
+<br>
+<br>
 
-    ```shell
-   cd cmd/seed
-   go run seed.go
-    ```
+
+
 
 ### Estrutura de pastas
 
