@@ -43,7 +43,7 @@ Este repositório contém uma API escrita em Golang que criar e gerenciar uma á
 
 5. Há um módulo nesta aplicação para popular o banco de dados com dados iniciais, o que pode facilitar o seu uso. Caso deseje utilizá-lo, execute o seguinte comando:
     ```shell
-    docker exec family-tree-challenge-app-1 /app/seed
+    docker exec <container_id_or_name> /app/seed
     ```
 
 <br>
